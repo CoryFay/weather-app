@@ -22,21 +22,21 @@ $(document).ready(function () {
             url: queryURL,
             method: 'GET'
         }).then(function (response) {
-            var cityName = $('#fillList').children('li')[0];
-            var date = $('#fillList').children('li')[1];;
-            var temp = $('#fillList').children('li')[2];;
-            var humidity = $('#fillList').children('li')[3];;
-            var wind = $('#fillList').children('li')[4];;
-            var uvInd = $('#image');
+            var cityDate = $('#fillList').children('p')[0];
+            var date = today;
+            var temp = $('#fillList').children('p')[1];;
+            var humidity = $('#fillList').children('p')[2];;
+            var wind = $('#fillList').children('p')[3];;
+            var img = $('#image');
 
             obj = response;
             console.log(obj);
-            cityName.innerText = 'City: ' + obj.name
-            date.innerText = 'Date: ' + today;
-            temp.innerText = 'Temperature: ' + obj.main.temp;
+            cityDate.innerText = obj.name + ' (' + date + ')';
+            //date.innerText = 'Date: ' + today;
+            temp.innerText = 'Temperature: ' + obj.main.temp + ' degrees';
             humidity.innerText = 'Humidity: ' + obj.main.humidity + '%';
-            wind.innerText = 'Wind: ' + obj.wind.speed + ' mph';
-            uvInd.attr('src', 'http://openweathermap.org/img/wn/' + obj.weather[0].icon + '@2x.png')
+            wind.innerText = 'Wind Speed: ' + obj.wind.speed + ' mph';
+            img.attr('src', 'http://openweathermap.org/img/wn/' + obj.weather[0].icon + '@2x.png')
 
 
         });
