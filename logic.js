@@ -48,12 +48,11 @@ $(document).ready(function () {
             method: 'GET'
         }).then(function (forecast) {
             for (var i = 0; i < 5; i++) {
+                // Generate the date for 5 day forecast
                 var selector = $('#num' + i);
                 var imgForecast = $('<img>');
-                // var dateForecast = today;
                 var targetDate = new Date();
                 targetDate.setDate(targetDate.getDate() + (i + 1));
-
                 var dd2 = targetDate.getDate();
                 var mm2 = targetDate.getMonth() + 1; 
                 var yyyy2 = targetDate.getFullYear();
@@ -64,7 +63,7 @@ $(document).ready(function () {
                     mm2 = '0' + mm2;
                 }
                 var dateString = mm2 + "/" + dd2 + "/" + yyyy2;
-
+                // Fill the empty Divs with data from API 
                 obj5Day = forecast;
                 console.log(obj5Day);
                 selector.append('<h2>' + dateString + '</h2>');
