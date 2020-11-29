@@ -17,7 +17,6 @@ $(document).ready(function () {
         if (dd < 10) {
             dd = '0' + dd;
         }
-
         if (mm < 10) {
             mm = '0' + mm;
         }
@@ -51,11 +50,24 @@ $(document).ready(function () {
             for (var i = 0; i < 5; i++) {
                 var selector = $('#num' + i);
                 var imgForecast = $('<img>');
-                var dateForecast = today;
+                // var dateForecast = today;
+                var targetDate = new Date();
+                targetDate.setDate(targetDate.getDate() + (i + 1));
+
+                var dd2 = targetDate.getDate();
+                var mm2 = targetDate.getMonth() + 1; 
+                var yyyy2 = targetDate.getFullYear();
+                if (dd2 < 10) {
+                    dd2 = '0' + dd2;
+                }
+                if (mm2 < 10) {
+                    mm2 = '0' + mm2;
+                }
+                var dateString = mm2 + "/" + dd2 + "/" + yyyy2;
 
                 obj5Day = forecast;
                 console.log(obj5Day);
-                selector.append('<h2>' + obj5Day.list[3 + (i * 8)].dt_txt + '</h2>');
+                selector.append('<h2>' + dateString + '</h2>');
                 imgForecast.attr('src', 'http://openweathermap.org/img/wn/' + obj5Day.list[3 + (i * 8)].weather[0].icon + '@2x.png')
                 selector.append(imgForecast);
                 selector.append('<p>Temp: ' + obj5Day.list[3 + (i * 8)].main.temp_max + '</p>');
