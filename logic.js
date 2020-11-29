@@ -34,7 +34,8 @@ $(document).ready(function () {
 
     $("button").on("click", function (event) {
         event.preventDefault();
-        $('.forecast').children('div').empty();
+        $('#forecast').children('div').empty();
+        $('#forecast').removeClass('hide');
         var city = $('#cityInput').val();
         var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&APPID=ed95b778408ac6d4e0bb101e786ed762';
         var fiveDayURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&APPID=ed95b778408ac6d4e0bb101e786ed762'
@@ -99,7 +100,7 @@ $(document).ready(function () {
                 var dateString = mm2 + "/" + dd2 + "/" + yyyy2;
                 // Fill the empty Divs with data from API 
                 obj5Day = forecast;
-                selector.append('<h2>' + dateString + '</h2>');
+                selector.append('<h4>' + dateString + '</h4>');
                 imgForecast.attr('src', 'http://openweathermap.org/img/wn/' + obj5Day.list[3 + (i * 8)].weather[0].icon + '@2x.png')
                 selector.append(imgForecast);
                 selector.append('<p>Temp: ' + obj5Day.list[3 + (i * 8)].main.temp_max + '</p>');

@@ -1,10 +1,12 @@
 body {
     font-family: monospace;
+    background-color: lightblue;
 }
 header {
     width: 100%;
+    padding: 20px;
     text-align: center;
-    background-color: skyblue;
+    background-color: royalblue;
     margin-bottom: 0px;
 }
 .cities {
@@ -14,15 +16,32 @@ header {
     width: 58%;
     font-size: 24px;
     background-color: skyblue;
+    border: solid 2px white;
     
-}
-.forecast{
-    margin-left: 15px;
 }
 .presentDay {
     font-size: 24px;
 }
 #container {
     margin-top: 2px;
-    background-color: gray;
+    background-color:lightskyblue;
+}
+#forecast {
+    margin-left: 0px;
+    text-align: center;
+}
+#num0 ,
+#num1 , 
+#num2 , 
+#num3 ,
+#num4 {
+    background-color: lightseagreen;
+    padding: 10px 15px 10px 15px;
+    margin: 10px 38px;
+    border: solid 2px white;
+}
+
+/* Hidden class feature for forecast divs */
+.hide {
+    display: none;
 }
