@@ -1,36 +1,6 @@
 $(document).ready(function () {
     var obj = [];
     var obj5Day = [];
-    //var lsObj = JSON.parse(localStorage.getItem('currentDayWeather'));
-    // console.log(localStorage.getItem('currentDayWeather'));
-    // console.log(localStorage.getItem('fiveDayForecast'));
-    // var today = new Date();
-    // var dd = today.getDate();
-    // var mm = today.getMonth() + 1;
-    // var yyyy = today.getFullYear();
-    // if (dd < 10) {
-    //     dd = '0' + dd;
-    // }
-    // if (mm < 10) {
-    //     mm = '0' + mm;
-    // }
-    // today = mm + '/' + dd + '/' + yyyy;
-    // var cityDate = $('#fillList').children('p')[0];
-    //         var date = today;
-    //         var temp = $('#fillList').children('p')[1];;
-    //         var humidity = $('#fillList').children('p')[2];;
-    //         var wind = $('#fillList').children('p')[3];;
-    //         var img = $('#image');
-
-    //         // obj = current;
-    //         cityDate.innerText = lsObj.name + ' (' + date + ')';
-    //         temp.innerText = 'Temperature: ' + lsObj.main.temp + ' degrees';
-    //         humidity.innerText = 'Humidity: ' + lsObj.main.humidity + '%';
-    //         wind.innerText = 'Wind Speed: ' + lsObj.wind.speed + ' mph';
-    //         img.attr('src', 'http://openweathermap.org/img/wn/' + lsObj.weather[0].icon + '@2x.png')
-    //         //localStorage.setItem('currentDayWeather', JSON.stringify(obj));
-        
-
 
     $("button").on("click", function (event) {
         event.preventDefault();
@@ -38,7 +8,7 @@ $(document).ready(function () {
         $('#forecast').removeClass('hide');
         var city = $('#cityInput').val();
         var queryURL = 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=imperial&APPID=ed95b778408ac6d4e0bb101e786ed762';
-        var fiveDayURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&APPID=ed95b778408ac6d4e0bb101e786ed762'
+        var fiveDayURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&APPID=ed95b778408ac6d4e0bb101e786ed762';
         // APIkey = ed95b778408ac6d4e0bb101e786ed762
 
         // Formats the Current Date
@@ -62,11 +32,11 @@ $(document).ready(function () {
             obj = current;
             var cityDate = $('#fillList').children('p')[0];
             var date = today;
-            var temp = $('#fillList').children('p')[1];;
-            var humidity = $('#fillList').children('p')[2];;
-            var wind = $('#fillList').children('p')[3];;
+            var temp = $('#fillList').children('p')[1];
+            var humidity = $('#fillList').children('p')[2];
+            var wind = $('#fillList').children('p')[3];
             var img = $('#image');
-            var newH3 = $('<h3>' +obj.name+ '</h3>');
+            var newH3 = $('<h3>' + obj.name + '</h3>');
 
             $('#emptyBtnDiv').append(newH3);
             cityDate.innerText = obj.name + ' (' + date + ')';
@@ -89,7 +59,7 @@ $(document).ready(function () {
                 var targetDate = new Date();
                 targetDate.setDate(targetDate.getDate() + (i + 1));
                 var dd2 = targetDate.getDate();
-                var mm2 = targetDate.getMonth() + 1; 
+                var mm2 = targetDate.getMonth() + 1;
                 var yyyy2 = targetDate.getFullYear();
                 if (dd2 < 10) {
                     dd2 = '0' + dd2;
