@@ -16,6 +16,9 @@ header {
     background-color: skyblue;
     
 }
+.forecast{
+    margin-left: 15px;
+}
 .presentDay {
     font-size: 24px;
 }
